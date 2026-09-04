@@ -12,7 +12,22 @@ const defaultApps = [
 ];
 let apps = JSON.parse(localStorage.getItem("novaEraApps") || "null") || defaultApps;
 function save(){ localStorage.setItem("novaEraApps", JSON.stringify(apps)); }
-function iconFor(a){ return a.name === "Nova Era TV" ? "▶" : "N"; }
+function iconFor(a){
+  const imagens = {
+    "BonitoTV":"bonitotv.jpg",
+    "LupiTV":"lupitv.jpg",
+    "P2P BinStream Exclusive":"tvs.jpg",
+    "TudoTV Box":"tudo_tv.jpg",
+    "TudoTV":"tudo_tv.jpg",
+    "TVE BR":"tv_mais_express.jpg",
+    "UniTV":"unitv.jpg",
+    "WPlay P2P":"wplay.jpg",
+    "YouCine":"youcine.jpg"
+  };
+  return imagens[a.name]
+    ? `<img src="${imagens[a.name]}" alt="${a.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">`
+    : "N";
+}
 function card(a){
   return `<article class="app-card">
     <div class="app-icon"><span>${iconFor(a)}</span></div>
