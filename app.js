@@ -19,6 +19,7 @@ function iconFor(a){
     "P2P BinStream Exclusive":"tvs.jpg",
     "TudoTV Box":"tudo_tv.jpg",
     "TudoTV":"tudo_tv.jpg",
+    "TV + Cinema":"tvcinema.png",
     "TVE BR":"tv_mais_express.jpg",
     "UniTV":"unitv.jpg",
     "WPlay P2P":"wplay.jpg",
