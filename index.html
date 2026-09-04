@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6a00">
+  <title>Nova Era TV — Aplicativos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" data-page="home" aria-label="Nova Era TV">
+      <span class="brand-mark">▶</span>
+      <span>NOVA ERA <b>TV</b></span>
+    </a>
+    <nav>
+      <a href="#home" data-page="home" class="active">Início</a>
+      <a href="#apps" data-page="apps">Aplicativos</a>
+      <a href="#tools" data-page="tools">Ferramentas</a>
+      <a href="#updates" data-page="updates">Atualizações</a>
+      <a href="#support" data-page="support">Suporte</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">CENTRAL NOVA ERA TV</span>
+          <h1>Seus aplicativos.<br><strong>Sempre atualizados.</strong></h1>
+          <p>Encontre aplicativos e ferramentas para TV Box, Fire TV Stick e dispositivos Android em um só lugar.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#apps">Ver aplicativos</a>
+            <a class="btn ghost" href="#support">Precisa de ajuda?</a>
+          </div>
+        </div>
+        <div class="hero-device">
+          <div class="tv">
+            <div class="tv-screen">
+              <div class="screen-logo"><span>▶</span> NOVA ERA <b>TV</b></div>
+              <small>QUALIDADE EM SUAS MÃOS</small>
+            </div>
+          </div>
+          <div class="device-stick"></div>
+          <div class="remote"></div>
+        </div>
+      </section>
+
+      <section class="search-wrap">
+        <div class="search">
+          <span>⌕</span>
+          <input id="homeSearch" type="search" placeholder="Pesquisar aplicativos...">
+          <button onclick="searchFromHome()">Buscar</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>🔥 Aplicativos em destaque</h2>
+          <a href="#apps">Ver todos →</a>
+        </div>
+        <div id="featuredGrid" class="app-grid"></div>
+      </section>
+
+      <section class="trust">
+        <div><span>🛡</span><strong>Download seguro</strong><small>Arquivos organizados e identificados.</small></div>
+        <div><span>⚡</span><strong>Sempre atualizado</strong><small>Controle de versões em um só lugar.</small></div>
+        <div><span>▣</span><strong>Compatível</strong><small>TV Box, Fire TV e Android.</small></div>
+        <div><span>◉</span><strong>Suporte</strong><small>Orientação para instalação.</small></div>
+      </section>
+    </section>
+
+    <section id="apps" class="page">
+      <div class="page-title">
+        <span class="eyebrow">CATÁLOGO</span>
+        <h1>Aplicativos</h1>
+        <p>Escolha um aplicativo para ver detalhes e baixar.</p>
+      </div>
+      <div class="filters">
+        <input id="appSearch" type="search" placeholder="Pesquisar por nome...">
+        <select id="categoryFilter">
+          <option value="Todos">Todas as categorias</option>
+          <option>TV e Filmes</option>
+          <option>Canais de TV</option>
+          <option>Ferramentas</option>
+          <option>Utilitários</option>
+          <option>Jogos</option>
+        </select>
+      </div>
+      <div id="allAppsGrid" class="app-grid"></div>
+    </section>
+
+    <section id="tools" class="page">
+      <div class="page-title"><span class="eyebrow">UTILIDADES</span><h1>Ferramentas</h1><p>Recursos úteis para configurar seu dispositivo.</p></div>
+      <div class="tool-grid">
+        <article class="tool-card"><span>⬇</span><h3>Downloader</h3><p>Ferramenta para acessar páginas e instalar aplicativos compatíveis.</p><div class="code-box">Código: <b>112233</b><button onclick="copyText('112233')">Copiar</button></div></article>
+        <article class="tool-card"><span>⚙</span><h3>Configuração</h3><p>Guia rápido para preparar seu Android TV para instalações.</p><a class="btn primary" href="#support">Ver orientação</a></article>
+        <article class="tool-card"><span>🔄</span><h3>Atualizações</h3><p>Confira as versões mais recentes publicadas na central.</p><a class="btn ghost" href="#updates">Ver atualizações</a></article>
+      </div>
+    </section>
+
+    <section id="updates" class="page">
+      <div class="page-title"><span class="eyebrow">NOVIDADES</span><h1>Atualizações</h1><p>Últimas versões cadastradas na central.</p></div>
+      <div id="updatesList" class="updates-list"></div>
+    </section>
+
+    <section id="support" class="page">
+      <div class="page-title"><span class="eyebrow">ATENDIMENTO</span><h1>Suporte</h1><p>Orientações rápidas para instalação e uso.</p></div>
+      <div class="support-grid">
+        <article><span>01</span><h3>Baixe o aplicativo</h3><p>Escolha o app, confira a versão e toque em “Baixar agora”.</p></article>
+        <article><span>02</span><h3>Instale no dispositivo</h3><p>Abra o arquivo baixado e siga as instruções do seu aparelho.</p></article>
+        <article><span>03</span><h3>Precisa de ajuda?</h3><p>Entre em contato com o atendimento da Nova Era TV.</p></article>
+      </div>
+    </section>
+
+    <section id="admin" class="page">
+      <div class="page-title"><span class="eyebrow">ADMINISTRAÇÃO</span><h1>Painel de aplicativos</h1><p>Protótipo local para cadastrar e organizar aplicativos.</p></div>
+      <div class="admin-note">⚠️ Nesta primeira versão, os dados ficam somente neste navegador. Para publicar APKs de verdade e disponibilizá-los para todos, o próximo passo é ligar este painel a um servidor/banco de dados e armazenamento.</div>
+      <form id="appForm" class="admin-form">
+        <input name="name" placeholder="Nome do aplicativo" required>
+        <input name="version" placeholder="Versão (ex.: 1.0.5)" required>
+        <select name="category">
+          <option>TV e Filmes</option><option>Canais de TV</option><option>Ferramentas</option><option>Utilitários</option><option>Jogos</option>
+        </select>
+        <input name="code" placeholder="Código Downloader (opcional)">
+        <input name="description" placeholder="Descrição" required>
+        <input name="download" type="url" placeholder="Link do APK (https://...)" required>
+        <button class="btn primary" type="submit">+ Publicar aplicativo</button>
+      </form>
+      <div id="adminList" class="admin-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span class="brand-mark">▶</span><strong>NOVA ERA <b>TV</b></strong></div>
+    <div>© 2026 Nova Era TV · Central de aplicativos</div>
+    <a href="#admin">Administração</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
