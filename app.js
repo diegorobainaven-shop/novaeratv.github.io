@@ -54,6 +54,16 @@ function renderApps(){
 }
 function renderUpdates(){
   document.getElementById("updatesList").innerHTML=[...apps].slice(0,10).map(a=>`<div class="update-item"><div><strong>${escapeHtml(a.name)}</strong><br><small>Versão ${escapeHtml(a.version)} · ${escapeHtml(a.category)}</small></div><span class="tag">${a.updated||"novo"}</span></div>`).join("");
+}function renderTools(){
+  document.getElementById("toolsGrid").innerHTML=tools.map(a=>`
+    <article class="tool-card">
+      <span>🛠️</span>
+      <h3>${escapeHtml(a.name)}</h3>
+      <p>${escapeHtml(a.description)}</p>
+      <div class="meta">Versão: ${escapeHtml(a.version)}</div>
+      <a class="btn primary" href="${a.download}" target="_blank" rel="noopener">BAIXAR AGORA</a>
+    </article>
+  `).join("");
 }
 function renderAdmin(){
   document.getElementById("adminList").innerHTML=apps.map(a=>`<div class="admin-row"><div><strong>${escapeHtml(a.name)}</strong> · ${escapeHtml(a.version)}<br><small>${escapeHtml(a.category)} · ${escapeHtml(a.download)}</small></div><button class="danger" onclick="removeApp(${a.id})">Excluir</button></div>`).join("");
@@ -64,7 +74,7 @@ function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":
 function searchFromHome(){const q=document.getElementById("homeSearch").value;location.hash="apps";setTimeout(()=>{document.getElementById("appSearch").value=q;renderApps()},0);}
 function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("active",a.dataset.page===id));window.scrollTo({top:0,behavior:"smooth"});}
 function route(){let id=(location.hash||"#home").slice(1);if(!["home","apps","tools","updates","support","admin"].includes(id))id="home";showPage(id);}
-function renderAll(){renderFeatured();renderApps();renderUpdates();renderAdmin();}
+function renderAll(){renderFeatured();renderApps();renderUpdates();renderTools();renderAdmin();}
 document.querySelectorAll("[data-page]").forEach(a=>a.addEventListener("click",()=>setTimeout(route,0)));
 document.getElementById("appSearch").addEventListener("input",renderApps);
 document.getElementById("categoryFilter").addEventListener("change",renderApps);
