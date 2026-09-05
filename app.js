@@ -10,6 +10,11 @@ const defaultApps = [
 {id:9,name:"WPlay P2P",version:"atual",category:"Canais de TV",code:"",description:"Aplicativo P2P para dispositivos compatíveis.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/WPlay.P2P.BinStream.apk",updated:"04/09/2026",featured:false},
 {id:10,name:"YouCine",version:"1.15.4",category:"TV e Filmes",code:"",description:"Aplicativo para filmes e séries em dispositivos compatíveis.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/YouCine_1.15.4_Box_AtivaGo.apk",updated:"04/09/2026",featured:false}
 ];
+const tools = [
+{id:1,name:"Downloader",version:"1.5.3",category:"Ferramentas",description:"Ferramenta para download e instalação de aplicativos.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/Downloader_1.5.3.apk"},
+{id:2,name:"LINK2SD",version:"atual",category:"Ferramentas",description:"Ferramenta para gerenciamento de aplicativos e armazenamento.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/LINK2SD.apk"},
+{id:3,name:"Lucky Patcher",version:"11.7.0",category:"Ferramentas",description:"Ferramenta para gerenciamento e manutenção de aplicativos.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/Lucky-Patcher-v11.7.0.apk"}
+];
 let apps = JSON.parse(localStorage.getItem("novaEraApps") || "null") || defaultApps;
 function save(){ localStorage.setItem("novaEraApps", JSON.stringify(apps)); }
 function iconFor(a){
