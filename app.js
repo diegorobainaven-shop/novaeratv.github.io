@@ -10,6 +10,11 @@ const defaultApps = [
 {id:9,name:"WPlay P2P",version:"atual",category:"Canais de TV",code:"",description:"Aplicativo P2P para dispositivos compatíveis.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/WPlay.P2P.BinStream.apk",updated:"04/09/2026",featured:false},
 {id:10,name:"YouCine",version:"1.15.4",category:"TV e Filmes",code:"",description:"Aplicativo para filmes e séries em dispositivos compatíveis.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/YouCine_1.15.4_Box_AtivaGo.apk",updated:"04/09/2026",featured:false}
 ];
+const tools = [
+  {id:1,name:"Downloader",version:"1.5.3",category:"Ferramentas",description:"Ferramenta para download e instalação de aplicativos.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/Downloader_1.5.3.apk"},
+  {id:2,name:"LINK2SD",version:"atual",category:"Ferramentas",description:"Ferramenta para gerenciamento de aplicativos e armazenamento.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/LINK2SD.apk"},
+  {id:3,name:"Lucky Patcher",version:"11.7.0",category:"Ferramentas",description:"Ferramenta para gerenciamento e manutenção de aplicativos.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/Lucky-Patcher-v11.7.0.apk"}
+];
 let apps = JSON.parse(localStorage.getItem("novaEraApps") || "null") || defaultApps;
 function save(){ localStorage.setItem("novaEraApps", JSON.stringify(apps)); }
 function iconFor(a){
@@ -53,13 +58,33 @@ function renderUpdates(){
 function renderAdmin(){
   document.getElementById("adminList").innerHTML=apps.map(a=>`<div class="admin-row"><div><strong>${escapeHtml(a.name)}</strong> · ${escapeHtml(a.version)}<br><small>${escapeHtml(a.category)} · ${escapeHtml(a.download)}</small></div><button class="danger" onclick="removeApp(${a.id})">Excluir</button></div>`).join("");
 }
+
+function renderTools(){
+  const imagensTools = {
+    "Downloader":"downloader.jpg",
+    "LINK2SD":"link2sd.jpg",
+    "Lucky Patcher":"lucky_patcher.jpg"
+  };
+
+  document.getElementById("toolsGrid").innerHTML=tools.map(a=>
+    `<article class="tool-card">
+      <div class="tool-icon">
+        <img src="${imagensTools[a.name]}" alt="${escapeHtml(a.name)}">
+      </div>
+      <h3>${escapeHtml(a.name)}</h3>
+      <p>${escapeHtml(a.description)}</p>
+      <div class="meta">Versão: ${escapeHtml(a.version)}</div>
+      <a class="btn primary" href="${a.download}" target="_blank" rel="noopener">BAIXAR AGORA</a>
+    </article>`
+  ).join("");
+}
 function removeApp(id){if(confirm("Excluir este aplicativo do protótipo?")){apps=apps.filter(a=>a.id!==id);save();renderAll();}}
 function copyText(t){navigator.clipboard?.writeText(t);alert("Copiado: "+t);}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
 function searchFromHome(){const q=document.getElementById("homeSearch").value;location.hash="apps";setTimeout(()=>{document.getElementById("appSearch").value=q;renderApps()},0);}
 function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("active",a.dataset.page===id));window.scrollTo({top:0,behavior:"smooth"});}
 function route(){let id=(location.hash||"#home").slice(1);if(!["home","apps","tools","updates","support","admin"].includes(id))id="home";showPage(id);}
-function renderAll(){renderFeatured();renderApps();renderUpdates();renderAdmin();}
+function renderAll(){renderFeatured();renderApps();renderUpdates();renderTools();renderAdmin();}
 document.querySelectorAll("[data-page]").forEach(a=>a.addEventListener("click",()=>setTimeout(route,0)));
 document.getElementById("appSearch").addEventListener("input",renderApps);
 document.getElementById("categoryFilter").addEventListener("change",renderApps);
