@@ -31,3 +31,19 @@ footer{border-top:1px solid var(--line);padding:30px 7%;display:flex;justify-con
 .app-icon img[src*="tudo_tv.jpg"]{
   transform:scale(1.20);
 }
+.tool-icon{
+  width:100%;
+  height:170px;
+  overflow:hidden;
+  border-radius:12px;
+  margin-bottom:14px;
+  background:#090b0d;
+}
+
+.tool-icon img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+}
