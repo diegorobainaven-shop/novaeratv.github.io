@@ -28,7 +28,10 @@ function iconFor(a){
     "TVE BR":"tv_mais_express.jpg",
     "UniTV":"unitv.jpg",
     "WPlay P2P":"wplay.jpg",
-    "YouCine":"youcine.jpg"
+    "YouCine":"youcine.jpg",
+"Downloader":"downloader.jpg",
+"LINK2SD":"link2sd.jpg",
+"Lucky Patcher":"lucky_patcher.jpg"
   };
   return imagens[a.name]
     ? `<img src="${imagens[a.name]}" alt="${a.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">`
@@ -54,10 +57,18 @@ function renderApps(){
 }
 function renderUpdates(){
   document.getElementById("updatesList").innerHTML=[...apps].slice(0,10).map(a=>`<div class="update-item"><div><strong>${escapeHtml(a.name)}</strong><br><small>Versão ${escapeHtml(a.version)} · ${escapeHtml(a.category)}</small></div><span class="tag">${a.updated||"novo"}</span></div>`).join("");
-}function renderTools(){
-  document.getElementById("toolsGrid").innerHTML=tools.map(a=>`
+function renderTools(){
+  const imagensTools = {
+    "Downloader":"downloader.jpg",
+    "LINK2SD":"link2sd.jpg",
+    "Lucky Patcher":"lucky_patcher.jpg"
+  };
+
+ document.getElementById("toolsGrid").innerHTML=tools.map(a=>` 
     <article class="tool-card">
-      <span>🛠️</span>
+      <div class="tool-icon">
+        <img src="${imagensTools[a.name]}" alt="${escapeHtml(a.name)}">
+      </div>
       <h3>${escapeHtml(a.name)}</h3>
       <p>${escapeHtml(a.description)}</p>
       <div class="meta">Versão: ${escapeHtml(a.version)}</div>
