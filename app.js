@@ -42,9 +42,10 @@ function card(a){
     <p>${escapeHtml(a.description)}</p>
     <div class="meta">Versão: ${escapeHtml(a.version)} · Atualizado: ${escapeHtml(a.updated || "agora")}</div>
     <a class="btn primary download" href="${a.download || '#'}" target="_blank" rel="noopener">⬇ BAIXAR AGORA</a>
-    ${a.code ? `<div class="code-box">Código Downloader: <b>${escapeHtml(a.code)}</b><button onclick="copyText('${String(a.code).replace(/'/g,"\\'")}')">Copiar</button></div>` : ""}
+    ${a.code ? `<div class="code-box">Código Downloader: <b>${escapeHtml(a.code)}</b> <button onclick="copyText('${String(a.code).replace(/'/g, "\\'")}')">Copiar</button></div>` : ""}
   </article>`;
 }
+
 function renderFeatured(){document.getElementById("featuredGrid").innerHTML=apps.filter(a=>a.featured).slice(0,4).map(card).join("");}
 function renderApps(){
   const q=(document.getElementById("appSearch")?.value||"").toLowerCase();
