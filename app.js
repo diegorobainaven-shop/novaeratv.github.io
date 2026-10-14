@@ -6,7 +6,7 @@ const defaultApps = [
 
 {id:6,name:"TV + Cinema",version:"1.1",category:"TV e Filmes",code:"",description:"Aplicativo de TV e cinema para dispositivos compatíveis.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/tv%2Bcinema11.apk",updated:"04/09/2026",featured:false},
 {id:7,name:"TVE BR",version:"3.8.2",category:"Canais de TV",code:"",description:"Aplicativo para dispositivos compatíveis.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/TVEBR_stb01001_3.8.2.apk",updated:"04/09/2026",featured:false},
-{id:8,name:"UniTV",version:"atual",category:"Canais de TV",code:"",description:"Aplicativo para dispositivos compatíveis.",download:"https://aftv.news/2927515",updated:"04/09/2026",featured:false},
+{id:8,name:"UniTV",version:"version:"4.21",category:"Canais de TV",code:"6292553",description:"Aplicativo para dispositivos compatíveis.",download:"https://aftv.news/2927515",updated:"04/09/2026",featured:false},
 {id:9,name:"WPlay P2P",version:"atual",category:"Canais de TV",code:"",description:"Aplicativo P2P para dispositivos compatíveis.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/WPlay.P2P.BinStream.apk",updated:"04/09/2026",featured:false},
 {id:10,name:"YouCine",version:"1.15.4",category:"TV e Filmes",code:"",description:"Aplicativo para filmes e séries em dispositivos compatíveis.",download:"https://github.com/diegorobainaven-shop/novaeratv.github.io/releases/download/v1.0.0/YouCine_1.15.4_Box_AtivaGo.apk",updated:"04/09/2026",featured:false}
 ];
